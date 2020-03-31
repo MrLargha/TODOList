@@ -1,5 +1,9 @@
 package ru.mrlagha.data;
 
+import ru.mrlagha.data.exceptions.EntryFileNotFoundException;
+import ru.mrlagha.data.exceptions.EntryReadException;
+import ru.mrlagha.data.exceptions.EntryWriteException;
+
 import java.io.*;
 import java.util.stream.Collectors;
 

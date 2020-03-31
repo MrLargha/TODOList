@@ -7,6 +7,8 @@
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/lib/gson-2.8.5-javadoc.jar!/" />
     </JAVADOC>
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/gson-2.8.5-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -1,4 +1,4 @@
-package ru.mrlagha.data;
+package ru.mrlagha.data.exceptions;
 
 import java.io.IOException;
 

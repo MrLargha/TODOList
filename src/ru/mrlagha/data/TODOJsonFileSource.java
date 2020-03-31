@@ -4,11 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.jetbrains.annotations.NotNull;
+import ru.mrlagha.data.exceptions.EntryReadException;
+import ru.mrlagha.data.exceptions.EntryWriteException;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.LinkedList;
-import java.util.List;
 
 public class TODOJsonFileSource implements ITODOSource {
     private TODOFileSource mTodoFileSource;

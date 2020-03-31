@@ -1,6 +1,4 @@
-package ru.mrlagha.data;
-
-import java.io.IOException;
+package ru.mrlagha.data.exceptions;
 
 public class EntryFileNotFoundException extends EntryReadException {
 }
