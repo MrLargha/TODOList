@@ -9,22 +9,26 @@ import ru.mrlagha.data.exceptions.EntryWriteException;
 
 import java.util.LinkedList;
 
-public class TODOJsonFileSource implements ITODOSource {
-    private TODOFileSource mTodoFileSource;
+/**
+ * Класс для работы со списком дел в JSON-формате
+ * Для работы с файлами используется {@link TODOFileSource}
+ */
+public class TODOJsonInterpreter extends TODOInterpreter {
 
-    public TODOJsonFileSource(String filename) {
-        mTodoFileSource = new TODOFileSource(filename);
+    public TODOJsonInterpreter(ITODODataSource dataSource) {
+        super(dataSource);
     }
 
     @Override
     public @NotNull LinkedList<TODOEntry> getEntries() throws EntryReadException {
-        return new Gson().fromJson(mTodoFileSource.readFile(), new TypeToken<LinkedList<TODOEntry>>() {}.getType());
+        return new Gson().fromJson(mDataSource.readData(), new TypeToken<LinkedList<TODOEntry>>() {
+        }.getType());
     }
 
     @Override
     public void writeEntries(@NotNull LinkedList<TODOEntry> entries) throws EntryWriteException {
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
-        mTodoFileSource.writeFile(gson.toJson(entries));
+        mDataSource.writeData(gson.toJson(entries));
     }
 }

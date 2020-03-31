@@ -9,7 +9,7 @@ class TODOFileSourceTest {
     void readWriteFile() throws Exception {
         TODOFileSource todoFileSource = new TODOFileSource("TODOFileSourceTest_RWTest.data");
         String testStr = "Lorem ipsum \r\n dolor sit amet";
-        todoFileSource.writeFile(testStr);
-        assert todoFileSource.readFile().equals(testStr);
+        todoFileSource.writeData(testStr);
+        assert todoFileSource.readData().equals(testStr);
     }
 }

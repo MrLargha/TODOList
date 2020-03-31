@@ -13,33 +13,36 @@ import java.util.LinkedList;
  * Но возможно дольнейшее расширение и добваление более сложной логики
  */
 public class TODORepository {
-    private LinkedList<ITODOSource> sources = new LinkedList<>();
+    private LinkedList<TODOInterpreter> mTODOInterpreters = new LinkedList<>();
 
     public TODORepository() {
-        sources.add(new TODOJsonFileSource("todo-list.json"));
+        mTODOInterpreters.add(new TODOJsonInterpreter(new TODOFileSource("todo-list.json")));
     }
 
     /**
      * Этот метод возвращает список из уникальных дел из всех доступных источников
+     *
      * @return Список дел
      * @throws EntryReadException когда возникла ошибка чтения из одного из источников
      */
-    @NotNull public LinkedList<TODOEntry> getTODOList() throws EntryReadException {
+    @NotNull
+    public LinkedList<TODOEntry> getTODOList() throws EntryReadException {
         var result = new HashSet<TODOEntry>();
-        for(ITODOSource source : sources){
-            result.addAll(source.getEntries());
+        for (TODOInterpreter interpreter : mTODOInterpreters) {
+            result.addAll(interpreter.getEntries());
         }
         return new LinkedList<>(result);
     }
 
     /**
      * Этот метод записывает список дел во все возможные источники
-     * @param list список дел
+     *
+     * @param list Список дел
      * @throws EntryWriteException если произошла ошибка записи в однин из источников
      */
     public void writeTODOList(@NotNull LinkedList<TODOEntry> list) throws EntryWriteException {
-        for(ITODOSource source : sources){
-            source.writeEntries(list);
+        for (TODOInterpreter interpreter : mTODOInterpreters) {
+            interpreter.writeEntries(list);
         }
     }
 

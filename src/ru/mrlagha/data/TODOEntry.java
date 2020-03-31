@@ -2,15 +2,32 @@ package ru.mrlagha.data;
 
 import java.util.Objects;
 
+
+/**
+ * Класс, представляющий одно дело в списке, также служит для сериализации в JSON
+ */
 public class TODOEntry {
     public String caption;
     public String content;
     public boolean completed;
 
+    /**
+     * Конструктор невыполненного дела
+     *
+     * @param caption заголовок
+     * @param content содержимое
+     */
     public TODOEntry(String caption, String content) {
         this(caption, content, false);
     }
 
+    /**
+     * Стадартный конструктор дела
+     *
+     * @param caption   заголовк
+     * @param content   содержимое
+     * @param completed заверешнность дела
+     */
     public TODOEntry(String caption, String content, boolean completed) {
         this.caption = caption;
         this.content = content;
