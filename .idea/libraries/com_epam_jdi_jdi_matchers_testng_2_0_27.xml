@@ -1,0 +1,31 @@
+<component name="libraryTable">
+  <library name="com.epam.jdi:jdi-matchers-testng:2.0.27" type="repository">
+    <properties maven-id="com.epam.jdi:jdi-matchers-testng:2.0.27" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jdi-matchers-testng-2.0.27.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testng-7.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcommander-1.72.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guice-4.1.0-no_aop.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-19.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/snakeyaml-1.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdi-matchers-2.0.27.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdi-light-saber-2.0.39.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.10.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/jdi-matchers-testng-2.0.27-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testng-7.1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcommander-1.72-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guice-4.1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-19.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/snakeyaml-1.21-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdi-matchers-2.0.27-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdi-light-saber-2.0.39-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.10-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
