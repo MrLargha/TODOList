@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import ru.mrlagha.data.exceptions.EntryReadException;
 import ru.mrlagha.data.exceptions.EntryWriteException;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Класс для работы со списком дел в JSON-формате
@@ -20,13 +20,13 @@ public class TODOJsonInterpreter extends TODOInterpreter {
     }
 
     @Override
-    public @NotNull LinkedList<TODOEntry> getEntries() throws EntryReadException {
-        return new Gson().fromJson(mDataSource.readData(), new TypeToken<LinkedList<TODOEntry>>() {
+    public @NotNull ArrayList<TODOEntry> getEntries() throws EntryReadException {
+        return new Gson().fromJson(mDataSource.readData(), new TypeToken<ArrayList<TODOEntry>>() {
         }.getType());
     }
 
     @Override
-    public void writeEntries(@NotNull LinkedList<TODOEntry> entries) throws EntryWriteException {
+    public void writeEntries(@NotNull ArrayList<TODOEntry> entries) throws EntryWriteException {
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         mDataSource.writeData(gson.toJson(entries));

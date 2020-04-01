@@ -4,8 +4,8 @@ import org.jetbrains.annotations.NotNull;
 import ru.mrlagha.data.exceptions.EntryReadException;
 import ru.mrlagha.data.exceptions.EntryWriteException;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 /**
  * Данный класс объединяет несколько источников данных,
@@ -13,7 +13,7 @@ import java.util.LinkedList;
  * Но возможно дольнейшее расширение и добваление более сложной логики
  */
 public class TODORepository {
-    private LinkedList<TODOInterpreter> mTODOInterpreters = new LinkedList<>();
+    private ArrayList<TODOInterpreter> mTODOInterpreters = new ArrayList<>();
 
     public TODORepository() {
         mTODOInterpreters.add(new TODOJsonInterpreter(new TODOFileSource("todo-list.json")));
@@ -26,12 +26,12 @@ public class TODORepository {
      * @throws EntryReadException когда возникла ошибка чтения из одного из источников
      */
     @NotNull
-    public LinkedList<TODOEntry> getTODOList() throws EntryReadException {
+    public ArrayList<TODOEntry> getTODOList() throws EntryReadException {
         var result = new HashSet<TODOEntry>();
         for (TODOInterpreter interpreter : mTODOInterpreters) {
             result.addAll(interpreter.getEntries());
         }
-        return new LinkedList<>(result);
+        return new ArrayList<>(result);
     }
 
     /**
@@ -40,7 +40,7 @@ public class TODORepository {
      * @param list Список дел
      * @throws EntryWriteException если произошла ошибка записи в однин из источников
      */
-    public void writeTODOList(@NotNull LinkedList<TODOEntry> list) throws EntryWriteException {
+    public void writeTODOList(@NotNull ArrayList<TODOEntry> list) throws EntryWriteException {
         for (TODOInterpreter interpreter : mTODOInterpreters) {
             interpreter.writeEntries(list);
         }

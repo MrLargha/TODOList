@@ -34,6 +34,10 @@ public class TODOEntry {
         this.completed = completed;
     }
 
+    public String toString() {
+        return "Дело: " + caption + "\n" + content + "\nЗавершено:" + (completed ? "Да" : "Нет") + "\n";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
