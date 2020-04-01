@@ -8,15 +8,29 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Данный класс объединяет несколько источников данных,
+ * Данный синглетный класс объединяет несколько источников данных,
  * в данный момент в нем нет особой логики работы, так как используется только 1 источник.
  * Но возможно дольнейшее расширение и добваление более сложной логики
  */
 public class TODORepository {
+    private static TODORepository mInstance;
     private ArrayList<TODOInterpreter> mTODOInterpreters = new ArrayList<>();
 
-    public TODORepository() {
+
+    private TODORepository() {
         mTODOInterpreters.add(new TODOJsonInterpreter(new TODOFileSource("todo-list.json")));
+    }
+
+    /**
+     * При необходимости создает и возвращает интсанцию {@link TODORepository}
+     *
+     * @return инстанция {@link TODORepository}
+     */
+    public static TODORepository getInstance() {
+        if (mInstance == null) {
+            mInstance = new TODORepository();
+        }
+        return mInstance;
     }
 
     /**

@@ -2,6 +2,7 @@ package ru.mrlagha.buisnesslogic;
 
 import org.jetbrains.annotations.NotNull;
 import ru.mrlagha.data.TODOEntry;
+import ru.mrlagha.data.TODORepository;
 import ru.mrlagha.data.exceptions.EntryReadException;
 import ru.mrlagha.data.exceptions.EntryWriteException;
 
@@ -12,10 +13,11 @@ import java.util.ArrayList;
  * Работает под управлением {@link ConsoleHandler}
  */
 public class LogicHandler implements ILogicHandler {
+
     @NotNull
     @Override
     public ArrayList<TODOEntry> getAllTODOsList() throws EntryReadException {
-        return null;
+        return TODORepository.getInstance().getTODOList();
     }
 
     @NotNull

@@ -1,8 +1,10 @@
 package ru.mrlagha;
 
-public class Main {
+import ru.mrlagha.buisnesslogic.ConsoleHandler;
+import ru.mrlagha.buisnesslogic.LogicHandler;
 
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        new ConsoleHandler(System.in, System.out, new LogicHandler()).run();
     }
 }
