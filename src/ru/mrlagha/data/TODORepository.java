@@ -5,6 +5,7 @@ import ru.mrlagha.data.exceptions.EntryReadException;
 import ru.mrlagha.data.exceptions.EntryWriteException;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 
 /**
@@ -45,7 +46,9 @@ public class TODORepository {
         for (TODOInterpreter interpreter : mTODOInterpreters) {
             result.addAll(interpreter.getEntries());
         }
-        return new ArrayList<>(result);
+        ArrayList<TODOEntry> sortedResult = new ArrayList<>(result);
+        sortedResult.sort(Comparator.comparing(o -> o.caption));
+        return sortedResult;
     }
 
     /**

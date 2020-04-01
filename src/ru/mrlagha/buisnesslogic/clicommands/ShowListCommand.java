@@ -46,7 +46,8 @@ public class ShowListCommand extends CLICommand {
         }
         for (int i = 0; i < todoEntries.size(); ) {
             for (int j = 0; i < todoEntries.size() && j < 3; j++) {
-                write(todoEntries.get(i + j).toString());
+                write(todoEntries.get(i).toString());
+                writeln("");
                 i++;
             }
             if (i < todoEntries.size()) {

@@ -80,7 +80,8 @@ public class CLICommandFactory {
                 throw new IllegalClassFormatException("Команада " + commandClass.getCanonicalName() +
                         "должна иметь аннотацию CLICommandAnnotation");
             }
-            result.append(annotation.commandName()).append(" - ").append(annotation.commandDescription()).append('\n');
+            result.append("'").append(annotation.commandName()).append("'\t - \t")
+                    .append(annotation.commandDescription()).append('\n');
         }
         return result.toString();
     }

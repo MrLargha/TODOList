@@ -52,4 +52,8 @@ public class TODOEntry {
     public int hashCode() {
         return Objects.hash(caption, content, completed);
     }
+
+    public static int compare(TODOEntry first, TODOEntry second) {
+        return first.caption.compareTo(second.caption);
+    }
 }

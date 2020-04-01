@@ -96,13 +96,13 @@ public class ConsoleIO {
      * @throws IOException если возникли ошибки вывода
      */
     protected boolean getYesNo(String question) throws IOException {
-        writeln(question + " [Y/N]");
+        writeln(question + " [Д/н]");
         char c = Character.toLowerCase(getLetter());
-        while (c != 'y' && c != 'n') {
-            writeln("Введите Y или N!");
+        while (c != 'д' && c != 'н') {
+            writeln("Введите Д или Н!");
             c = Character.toLowerCase(getLetter());
         }
-        return c == 'y';
+        return c == 'д';
     }
 
 }

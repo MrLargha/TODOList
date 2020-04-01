@@ -30,10 +30,10 @@ public interface ILogicHandler {
     /**
      * Метод, отмечающий дело как выполненное
      *
-     * @param todoEntry дело, которое следует отметить
+     * @param todoTitle заголовок дела, которое следует отметить
      * @throws EntryWriteException если возникли ошибки при записи
      */
-    void setTODOComplete(@NotNull TODOEntry todoEntry) throws EntryWriteException;
+    void setTODOComplete(String todoTitle) throws EntryWriteException;
 
     /**
      * Метод добавляющий дело в список
@@ -41,13 +41,13 @@ public interface ILogicHandler {
      * @param todoEntry дело, котрое следует добавить
      * @throws EntryWriteException если возникли ошибки при записи
      */
-    void addTODO(@NotNull TODOEntry todoEntry) throws EntryWriteException;
+    void addTODOEntry(@NotNull TODOEntry todoEntry) throws EntryWriteException;
 
     /**
      * Метод для удаления дела из списка
      *
-     * @param todoEntry дело, которое требуется удалить
+     * @param todoTitle заголовок дела, которое требуется удалить
      * @throws EntryWriteException если возникли ошибки при записи
      */
-    void deleteTODO(@NotNull TODOEntry todoEntry) throws EntryWriteException;
+    void deleteTODO(String todoTitle) throws EntryWriteException;
 }

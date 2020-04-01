@@ -40,6 +40,9 @@ public class TODOJsonInterpreter extends TODOInterpreter {
 
     @Override
     public void writeEntries(@NotNull ArrayList<TODOEntry> entries) throws EntryWriteException {
+        if (entries.size() > MAX_ENTRIES) {
+            throw new EntryWriteException();
+        }
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         mDataSource.writeData(gson.toJson(entries));
