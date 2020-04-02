@@ -36,6 +36,7 @@ public class TODOFileSource implements ITODODataSource {
     public void writeData(String data) throws EntryWriteException {
         try (BufferedWriter out = new BufferedWriter(new FileWriter(filename))) {
             out.write(data);
+            out.flush();
         } catch (IOException e) {
             throw new EntryWriteException();
         }

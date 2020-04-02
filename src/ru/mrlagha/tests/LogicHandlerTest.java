@@ -1,9 +1,10 @@
 package ru.mrlagha.tests;
 
-import org.junit.jupiter.api.AfterAll;
+import org.junit.FixMethodOrder;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.runners.MethodSorters;
 import ru.mrlagha.buisnesslogic.LogicHandler;
 import ru.mrlagha.data.TODOEntry;
 import ru.mrlagha.data.exceptions.EntryWriteException;
@@ -11,6 +12,7 @@ import ru.mrlagha.data.exceptions.EntryWriteException;
 import java.io.File;
 import java.util.ArrayList;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class LogicHandlerTest {
 
     private LogicHandler mLogicHandler;
@@ -22,21 +24,20 @@ class LogicHandlerTest {
         file.delete();
     }
 
-    @AfterAll
-    static void tearDown() {
+    @AfterEach
+    void tearDown() {
         deleteFile();
     }
 
     @BeforeEach
+        // Включает тестирование добавления записи
     void setUp() {
+        deleteFile();
+
         mLogicHandler = new LogicHandler();
         completed = TestUtil.generateTODOs(10, 0, true);
         notCompleted = TestUtil.generateTODOs(10, 10, false);
-    }
 
-    @Test
-    @Order(1)
-    void addTODOEntry() {
         completed.forEach(x -> {
             try {
                 mLogicHandler.addTODOEntry(x);
@@ -56,7 +57,6 @@ class LogicHandlerTest {
     }
 
     @Test
-    @Order(2)
     void getAllTODOsList() throws Exception {
         ArrayList<TODOEntry> all = (ArrayList<TODOEntry>) completed.clone();
         all.addAll(notCompleted);
@@ -66,14 +66,12 @@ class LogicHandlerTest {
     }
 
     @Test
-    @Order(3)
     void getActiveTODOsList() throws Exception {
         var read = mLogicHandler.getActiveTODOsList();
         assert read.containsAll(notCompleted) && notCompleted.containsAll(read);
     }
 
     @Test
-    @Order(4)
     void setTODOComplete() throws Exception {
         notCompleted.forEach(x -> {
             try {
