@@ -1,0 +1,27 @@
+[
+  {
+    "caption": "Дело 0",
+    "content": "Содержиое дела 0, lorem ipsum",
+    "completed": true
+  },
+  {
+    "caption": "Дело 1",
+    "content": "Содержиое дела 1, lorem ipsum",
+    "completed": true
+  },
+  {
+    "caption": "Дело 2",
+    "content": "Содержиое дела 2, lorem ipsum",
+    "completed": false
+  },
+  {
+    "caption": "Дело 3",
+    "content": "Содержиое дела 3, lorem ipsum",
+    "completed": false
+  },
+  {
+    "caption": "Дело 4",
+    "content": "Содержиое дела 4, lorem ipsum",
+    "completed": false
+  }
+]

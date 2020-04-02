@@ -7,14 +7,10 @@ import ru.mrlagha.data.TODOJsonInterpreter;
 
 import java.util.ArrayList;
 
-class TODOJsonFileSourceTest {
+class TODOJsonInterpreterTest {
     @Test
     void jsonRWTest() throws Exception {
-        var testList = new ArrayList<TODOEntry>();
-        testList.add(new TODOEntry("Task1", "Content1", true));
-        testList.add(new TODOEntry("Task2", "Content2", false));
-        testList.add(new TODOEntry("Task3", "Content3", true));
-        testList.add(new TODOEntry("Task4", "Content4"));
+        var testList = TestUtil.generateTODOsWithRandomStatus(100);
         TODOJsonInterpreter todoJsonFileSource =
                 new TODOJsonInterpreter(new TODOFileSource("TODOJSONFileSourceTest_RWTest.json"));
         todoJsonFileSource.writeEntries(testList);

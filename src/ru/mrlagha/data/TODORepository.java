@@ -18,8 +18,8 @@ public class TODORepository {
     private ArrayList<TODOInterpreter> mTODOInterpreters = new ArrayList<>();
 
 
-    private TODORepository() {
-        mTODOInterpreters.add(new TODOJsonInterpreter(new TODOFileSource("todo-list.json")));
+    private TODORepository(String filename) {
+        mTODOInterpreters.add(new TODOJsonInterpreter(new TODOFileSource(filename)));
     }
 
     /**
@@ -27,9 +27,9 @@ public class TODORepository {
      *
      * @return инстанция {@link TODORepository}
      */
-    public static TODORepository getInstance() {
+    public static TODORepository getInstance(String filename) {
         if (mInstance == null) {
-            mInstance = new TODORepository();
+            mInstance = new TODORepository(filename);
         }
         return mInstance;
     }

@@ -17,12 +17,12 @@ import java.util.stream.Collectors;
  */
 public class LogicHandler implements ILogicHandler {
 
-    private TODORepository mRepository = TODORepository.getInstance();
+    private TODORepository mRepository = TODORepository.getInstance("todo-list.json");
 
     @NotNull
     @Override
     public ArrayList<TODOEntry> getAllTODOsList() throws EntryReadException {
-        return TODORepository.getInstance().getTODOList();
+        return mRepository.getTODOList();
     }
 
     @NotNull
