@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class TestUtil {
-    public static ArrayList<TODOEntry> generateTODOs(int amount) {
+    public static ArrayList<TODOEntry> generateTODOs(int amount, int begin_index, boolean complete) {
         var entries = new ArrayList<TODOEntry>();
-        for (int i = 0; i < amount; i++) {
-            entries.add(new TODOEntry("Дело " + i, "Содержиое дела " + i + ", lorem ipsum"));
+        for (int i = begin_index; i < amount + begin_index; i++) {
+            entries.add(new TODOEntry("Дело " + i, "Содержиое дела " + i + ", lorem ipsum", complete));
         }
         return entries;
     }
